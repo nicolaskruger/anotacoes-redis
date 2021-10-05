@@ -1,11 +1,11 @@
 package com.redisnicolas.getstarte.service.impl;
 
 import com.redisnicolas.getstarte.domain.KeyString;
-import com.redisnicolas.getstarte.service.SetService;
+import com.redisnicolas.getstarte.service.VariableService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SetServiceImpl extends ServiceBase implements SetService {
+public class VariableServiceImpl extends ServiceBase implements VariableService {
 
     @Override
     public void set(KeyString keyValue) {

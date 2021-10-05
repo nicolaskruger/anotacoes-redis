@@ -1,7 +1,7 @@
 package com.redisnicolas.getstarte.controller;
 
 import com.redisnicolas.getstarte.domain.KeyString;
-import com.redisnicolas.getstarte.service.SetService;
+import com.redisnicolas.getstarte.service.VariableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/set")
-public class SetController {
+public class VariableController {
 
     @Autowired
-    private SetService service;
+    private VariableService service;
 
     @PostMapping
     public ResponseEntity set(@RequestBody KeyString keyValue) {
