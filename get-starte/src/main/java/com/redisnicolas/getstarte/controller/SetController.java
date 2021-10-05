@@ -45,5 +45,13 @@ public class SetController {
     public ResponseEntity<Set<String>> sunion(@RequestParam String keyA, @RequestParam String keyB){
         return ResponseEntity.ok(service.sunion(keyA, keyB));
     }
+    @DeleteMapping("/spop")
+    public ResponseEntity<Set<String>> spop(@RequestParam String key, @RequestParam Long amount){
+        return ResponseEntity.ok(service.spop(key, amount));
+    }
+    @GetMapping("/randmember/{key}")
+    public ResponseEntity<String> srandmember(@PathVariable String key){
+        return ResponseEntity.ok(service.srandmember(key));
+    }
 
 }

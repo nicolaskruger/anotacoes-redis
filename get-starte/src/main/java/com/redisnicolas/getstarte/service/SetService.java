@@ -13,4 +13,6 @@ public interface SetService {
     Boolean sismember(String key, String value);
     Set<String> smember(String key);
     Set<String> sunion(String keyA, String keyB);
+    Set<String> spop(String key, Long amount);
+    String srandmember(String key);
 }

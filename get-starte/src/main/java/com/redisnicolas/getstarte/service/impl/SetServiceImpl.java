@@ -30,4 +30,10 @@ public class SetServiceImpl extends ServiceBase implements SetService {
     public Set<String> sunion(String keyA, String keyB){
         return getJedis().sunion(keyA, keyB);
     }
+    public Set<String> spop(String key, Long amount){
+        return getJedis().spop(key, amount);
+    }
+    public String srandmember(String key){
+        return getJedis().srandmember(key);
+    }
 }
