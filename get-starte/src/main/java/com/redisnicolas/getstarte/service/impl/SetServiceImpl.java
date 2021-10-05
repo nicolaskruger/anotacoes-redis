@@ -46,4 +46,14 @@ public class SetServiceImpl extends ServiceBase implements SetService {
     public Long decrby(String key, Long amount) {
         return getJedis().decrBy(key, amount);
     }
+
+    @Override
+    public Long ttl(String key){
+        return getJedis().ttl(key);
+    }
+
+    @Override
+    public Long expire(String key, Integer seconds){
+        return getJedis().expire(key, seconds);
+    }
 }

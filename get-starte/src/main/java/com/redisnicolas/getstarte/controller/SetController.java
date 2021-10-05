@@ -60,4 +60,14 @@ public class SetController {
     public ResponseEntity<Long> decrby(@RequestParam String key, @RequestParam Long amount) {
         return ResponseEntity.ok(service.decrby(key, amount));
     }
+
+    @PutMapping("/ttl/{key}")
+    public ResponseEntity<Long> ttl(@PathVariable String key){
+        return ResponseEntity.ok(service.ttl(key));
+    }
+
+    @PutMapping("/expire")
+    public ResponseEntity<Long> expire(@RequestParam String key, @RequestParam Integer seconds){
+        return  ResponseEntity.ok(service.expire(key, seconds));
+    }
 }

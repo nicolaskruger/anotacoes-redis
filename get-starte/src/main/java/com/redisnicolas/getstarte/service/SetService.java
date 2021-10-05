@@ -11,4 +11,6 @@ public interface SetService {
     Long incrby(String key, Long amount);
     Long decr(String key);
     Long decrby(String key, Long amount);
+    Long ttl(String key);
+    Long expire(String key, Integer seconds);
 }
