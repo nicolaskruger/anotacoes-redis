@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class KeyValue{
+@Builder
+public class KeyValue<T>{
     private String key;
-    private String value;
+    private T value;
 }

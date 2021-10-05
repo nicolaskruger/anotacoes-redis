@@ -1,6 +1,6 @@
 package com.redisnicolas.getstarte.service.impl;
 
-import com.redisnicolas.getstarte.domain.KeyValue;
+import com.redisnicolas.getstarte.domain.KeyString;
 import com.redisnicolas.getstarte.service.SetService;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class SetServiceImpl extends ServiceBase implements SetService {
 
     @Override
-    public void set(KeyValue keyValue) {
+    public void set(KeyString keyValue) {
         getJedis().set(keyValue.getKey(), keyValue.getValue());
     }
 

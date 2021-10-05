@@ -1,9 +1,9 @@
 package com.redisnicolas.getstarte.service;
 
-import com.redisnicolas.getstarte.domain.KeyValue;
+import com.redisnicolas.getstarte.domain.KeyString;
 
 public interface SetService {
-    void set(KeyValue keyValue);
+    void set(KeyString keyValue);
     String get(String key);
     Boolean exists(String key);
     void del(String key);

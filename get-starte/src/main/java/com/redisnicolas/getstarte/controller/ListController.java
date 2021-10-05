@@ -1,6 +1,7 @@
 package com.redisnicolas.getstarte.controller;
 
-import com.redisnicolas.getstarte.domain.KeyValue;
+import com.redisnicolas.getstarte.domain.KeyListString;
+import com.redisnicolas.getstarte.domain.KeyString;
 import com.redisnicolas.getstarte.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,14 +18,22 @@ public class ListController {
     private ListService listService;
 
     @PostMapping("/rpush")
-    public ResponseEntity rpush(@RequestBody KeyValue keyValue){
+    public ResponseEntity<Void> rpush(@RequestBody KeyString keyValue){
         listService.rpush(keyValue);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     @PostMapping("/lpush")
-    public ResponseEntity lpush(@RequestBody KeyValue keyValue){
+    public ResponseEntity<Void> lpush(@RequestBody KeyString keyValue){
         listService.lpush(keyValue);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+    @PostMapping("/rpush-list")
+    public ResponseEntity<Long> rpushList(@RequestBody KeyListString keyListString){
+        return ResponseEntity.ok(listService.rpushList(keyListString));
+    }
+    @PostMapping("/lpush-list")
+    public ResponseEntity<Long> lpushList(@RequestBody KeyListString keyListString){
+        return ResponseEntity.ok(listService.lpushList(keyListString));
     }
     @GetMapping("/lrange")
     public ResponseEntity<List<String>> lrange(

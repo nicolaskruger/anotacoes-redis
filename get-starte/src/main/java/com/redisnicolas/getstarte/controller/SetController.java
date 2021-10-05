@@ -1,6 +1,6 @@
 package com.redisnicolas.getstarte.controller;
 
-import com.redisnicolas.getstarte.domain.KeyValue;
+import com.redisnicolas.getstarte.domain.KeyString;
 import com.redisnicolas.getstarte.service.SetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ public class SetController {
     private SetService service;
 
     @PostMapping
-    public ResponseEntity set(@RequestBody KeyValue keyValue) {
+    public ResponseEntity set(@RequestBody KeyString keyValue) {
         service.set(keyValue);
 
         return ResponseEntity.status(HttpStatus.CREATED)
