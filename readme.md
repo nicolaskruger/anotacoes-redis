@@ -2,83 +2,53 @@
 
 - database
 - cache
-- [message broker](#message-broker)
+- message broker
 
-## :pushpin: tabela de conteudo
+## Simulador de linha de comando
 
-- [tipos de dados suportados](#tipos-de-dados-suportados)
-- [apendice](#apendice)
+é um simulador do propt do redis, nele é passado uma serie de tutorias com os comando presenes no redis.
 
-## tipos de dados suportados
+[link](https://try.redis.io/)
 
-- strings
-- hashes
-- lists
-- sets
-- sorted
-- sets
+## rodar redis local
 
-## features
-
-- [Transactions](#transaction)
-- Pub/Sub
-- Lua scripting
-- Keys with a limited time-to-live
-- LRU eviction of keys
-- Automatic failover
-
-## apendice
-
-### message broker
-
-Os message brokers são uma tecnologia de comunicação entre aplicativos que ajuda a criar um mecanismo de integração comum para suportar arquiteturas de cloud híbrida, sem servidor e com base em microsserviços.
-
-### bitmap
-
-chave valor inteiro bit
-
-```code
-> setbit key 10 1
-(integer) 1
-> getbit key 10
-(integer) 1
-> getbit key 11
-(integer) 0
-```
-
-### transaction
-
-#### **tipos**
-
-- MULT
-- EXEC
-- DISCARD
-- WATCH
-
-permitem executar uma série de comandos comandos em uma unica vez.
-
-#### **exemplo de comando**
+resposta do stack over flow de como rodar redis localmente.
 
 ```bash
-> MULTI # permite a execução de multiplos comandos
-OK
-> INCR foo # empilha o primeiro comando
-QUEUED
-> INCR bar # empilha o segundo comando
-QUEUED
-> EXEC # executa ambos os comandos
-1) (integer) 1
-2) (integer) 1
+
+# inicailizar o doker na 127.0.0.0.1:6379
+
+sudo docker run -d --name redis-test -p 6379:6379  -v /path/to/redisconf/redis.conf:/redis.conf redis redis-server /redis.conf
+
+# se conecta com o redis na 127.0.0.0.1:6379
+
+redis-cli
+
 ```
 
-### Pub/Sub
+[link](https://stackoverflow.com/questions/41371402/connecting-to-redis-running-in-docker-container-from-host-machine)
 
-#### **comandos**
+## Get-start balun
 
-- SUBSCRIBE
-- UNSUBSCRIBE
-- PUBLISH
+um get-start promovido pela baelun, ensina como utilizar o redis com java.
 
-```code
-SUBSCRIBE foo bar
+[link](https://www.baeldung.com/jedis-java-redis-client-library)
+
+## Meu get-starte
+
+o meu get start é um projeto em java para mostrar o funcinamento do redis ele está na pasta `./get-starte`
+
+para o funcinamento correto da aplicação é necessario rodar o seguinte comando:
+
+```bash
+mvn clean install
+```
+
+precisa estar com redis rodando na `127.0.0.0.1:6379`.
+
+ou pode altrar aquivo `application.yml`
+
+```yml
+ip: "localhost"
+port: 6379
 ```
