@@ -27,7 +27,22 @@ public class ListController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     @GetMapping("/lrange")
-    public ResponseEntity<List<String>> lrange(@RequestParam String key, @RequestParam Long start, @RequestParam Long end){
+    public ResponseEntity<List<String>> lrange(
+            @RequestParam String key,
+            @RequestParam Long start,
+            @RequestParam Long end){
         return ResponseEntity.ok(listService.lrange(key, start, end));
+    }
+    @PutMapping("/lpop/{key}")
+    public ResponseEntity<String> lpop(@PathVariable String key){
+        return  ResponseEntity.ok(listService.lpop(key));
+    }
+    @PutMapping("/rpop/{key}")
+    public ResponseEntity<String> rpop(@PathVariable String key){
+        return  ResponseEntity.ok(listService.rpop(key));
+    }
+    @GetMapping("/llen/{key}")
+    public ResponseEntity<Long> llen(@PathVariable String key){
+        return  ResponseEntity.ok(listService.llen(key));
     }
 }

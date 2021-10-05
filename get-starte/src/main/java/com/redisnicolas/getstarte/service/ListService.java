@@ -8,4 +8,7 @@ public interface ListService {
     void rpush(KeyValue keyValue);
     void lpush(KeyValue keyValue);
     List<String> lrange(String key, Long start, Long end);
+    String lpop(String key);
+    String rpop(String key);
+    Long llen(String key);
 }
