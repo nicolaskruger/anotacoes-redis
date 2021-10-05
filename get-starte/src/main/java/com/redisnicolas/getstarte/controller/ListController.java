@@ -5,10 +5,9 @@ import com.redisnicolas.getstarte.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/list")
@@ -26,5 +25,9 @@ public class ListController {
     public ResponseEntity lpush(@RequestBody KeyValue keyValue){
         listService.lpush(keyValue);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+    @GetMapping("/lrange")
+    public ResponseEntity<List<String>> lrange(@RequestParam String key, @RequestParam Long start, @RequestParam Long end){
+        return ResponseEntity.ok(listService.lrange(key, start, end));
     }
 }
